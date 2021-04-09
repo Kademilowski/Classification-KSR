@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="proj1.GUI.WindowK">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="31" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="29" width="605" height="804"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="ceeb2" class="javax.swing.JLabel" binding="kParamaeterJLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Współczynnik k"/>
+        </properties>
+      </component>
+      <component id="beea3" class="javax.swing.JTextField" binding="kParameterTextField">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="8c31d" class="javax.swing.JTextField" binding="testSetTextField">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="dd4dd" class="javax.swing.JLabel" binding="testSetJLabel">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Podział zbioru testowego"/>
+        </properties>
+      </component>
+      <vspacer id="cbc3c">
+        <constraints>
+          <grid row="1" column="3" row-span="2" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="ba652" class="javax.swing.JLabel" binding="featuresJLabel">
+        <constraints>
+          <grid row="8" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cechy"/>
+        </properties>
+      </component>
+      <component id="f4cfa" class="javax.swing.JCheckBox" binding="wordNumberCheckBox">
+        <constraints>
+          <grid row="9" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="liczba słów"/>
+        </properties>
+      </component>
+      <component id="9476" class="javax.swing.JCheckBox" binding="wordsSentenceCheckBox">
+        <constraints>
+          <grid row="10" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="słowa na zdania"/>
+        </properties>
+      </component>
+      <component id="7dfe5" class="javax.swing.JCheckBox" binding="capitalCheckBox">
+        <constraints>
+          <grid row="11" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="państwo"/>
+        </properties>
+      </component>
+      <component id="a7da5" class="javax.swing.JCheckBox" binding="currencyCheckBox">
+        <constraints>
+          <grid row="12" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="waluta"/>
+        </properties>
+      </component>
+      <component id="5713f" class="javax.swing.JCheckBox" binding="avgBigLetterCheckBox">
+        <constraints>
+          <grid row="13" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="średnia wielkich liter"/>
+        </properties>
+      </component>
+      <component id="b549c" class="javax.swing.JCheckBox" binding="dataFormatCheckBox">
+        <constraints>
+          <grid row="14" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="foramt zapisu daty"/>
+        </properties>
+      </component>
+      <component id="ca3" class="javax.swing.JCheckBox" binding="phoneFormatCheckBox">
+        <constraints>
+          <grid row="15" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="foramt zapisu telefonu"/>
+        </properties>
+      </component>
+      <component id="2352a" class="javax.swing.JCheckBox" binding="avgSignsCheckBox">
+        <constraints>
+          <grid row="16" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="średnia liczba znaków interpunkcyjnych"/>
+        </properties>
+      </component>
+      <component id="dc470" class="javax.swing.JCheckBox" binding="numberSentAtFragCheckBox">
+        <constraints>
+          <grid row="17" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="liczb zdań we fragmencie tekstu (pierwsze 30%)"/>
+        </properties>
+      </component>
+      <component id="ad49f" class="javax.swing.JCheckBox" binding="authorCheckBox">
+        <constraints>
+          <grid row="18" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="nazwa autora (imię i nazwisko)"/>
+        </properties>
+      </component>
+      <component id="38c3f" class="javax.swing.JRadioButton" binding="euculidesRadioBtn">
+        <constraints>
+          <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Euculides"/>
+        </properties>
+      </component>
+      <component id="25644" class="javax.swing.JRadioButton" binding="chebyshevRadioBtn">
+        <constraints>
+          <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Chebyhev"/>
+        </properties>
+      </component>
+      <component id="469d3" class="javax.swing.JRadioButton" binding="manhattanRadioBtn">
+        <constraints>
+          <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Manhattan"/>
+        </properties>
+      </component>
+      <component id="e237d" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="ccc29" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="15"/>
+            <preferred-size width="-1" height="15"/>
+            <maximum-size width="-1" height="15"/>
+          </grid>
+        </constraints>
+        <properties>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="2e5a6" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="0" column="0" row-span="31" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="-1"/>
+            <preferred-size width="10" height="-1"/>
+            <maximum-size width="10" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <verifyInputWhenFocusTarget value="false"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="ca8ec" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="0" column="8" row-span="31" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="-1"/>
+            <preferred-size width="10" height="-1"/>
+            <maximum-size width="10" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <verifyInputWhenFocusTarget value="false"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="90cad" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="6" column="3" row-span="15" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="10" height="-1"/>
+            <preferred-size width="10" height="-1"/>
+            <maximum-size width="10" height="-1"/>
+          </grid>
+        </constraints>
+        <properties>
+          <opaque value="false"/>
+          <orientation value="1"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="cf11e" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="21" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="10"/>
+            <preferred-size width="-1" height="10"/>
+            <maximum-size width="-1" height="10"/>
+          </grid>
+        </constraints>
+        <properties>
+          <autoscrolls value="false"/>
+          <background color="-12828863"/>
+          <doubleBuffered value="false"/>
+          <enabled value="true"/>
+          <focusCycleRoot value="false"/>
+          <focusTraversalPolicyProvider value="false"/>
+          <focusable value="false"/>
+          <inheritsPopupMenu value="false"/>
+          <requestFocusEnabled value="true"/>
+          <verifyInputWhenFocusTarget value="true"/>
+          <visible value="true"/>
+        </properties>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
+      </component>
+      <component id="c566e" class="javax.swing.JLabel" binding="resultJLabel">
+        <constraints>
+          <grid row="25" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Wyniki"/>
+        </properties>
+      </component>
+      <component id="f7ea5" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="30" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="30"/>
+            <preferred-size width="-1" height="30"/>
+            <maximum-size width="-1" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <verifyInputWhenFocusTarget value="false"/>
+          <visible value="true"/>
+        </properties>
+        <clientProperties>
+          <html.disable class="java.lang.Boolean" value="false"/>
+        </clientProperties>
+      </component>
+      <component id="917e2" class="javax.swing.JSeparator">
+        <constraints>
+          <grid row="24" column="1" row-span="1" col-span="7" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="-1" height="15"/>
+            <preferred-size width="-1" height="15"/>
+            <maximum-size width="-1" height="15"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="6b565" class="javax.swing.JTextField" binding="learnSetTextField">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="6df39" class="javax.swing.JLabel" binding="learnSetJLabel">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Podział zbioru uczącego"/>
+        </properties>
+      </component>
+      <component id="d4be2" class="javax.swing.JLabel" binding="textMeasureJLabel">
+        <constraints>
+          <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Miara podobieństwa tekstów"/>
+        </properties>
+      </component>
+      <component id="92e72" class="javax.swing.JRadioButton" binding="nGramRadioBtn">
+        <constraints>
+          <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="n-gramy"/>
+        </properties>
+      </component>
+      <component id="ab40" class="javax.swing.JLabel" binding="accuracyJLabel">
+        <constraints>
+          <grid row="26" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Accuracy(Dokładność):"/>
+        </properties>
+      </component>
+      <component id="7e89f" class="javax.swing.JLabel" binding="precisionJLabel">
+        <constraints>
+          <grid row="27" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Precision(Precyzja):"/>
+        </properties>
+      </component>
+      <component id="5a22d" class="javax.swing.JLabel" binding="recallJLabel">
+        <constraints>
+          <grid row="28" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Recall(Swoistość):"/>
+        </properties>
+      </component>
+      <component id="b2764" class="javax.swing.JLabel" binding="f1JLabel">
+        <constraints>
+          <grid row="29" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="F1(śr harmoniczna  Precision i Recall):"/>
+        </properties>
+      </component>
+      <component id="fbaa2" class="javax.swing.JLabel" binding="metricJLabel">
+        <constraints>
+          <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Metryki"/>
+        </properties>
+      </component>
+      <component id="28ad" class="javax.swing.JButton" binding="classificationBtn">
+        <constraints>
+          <grid row="22" column="4" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Rozpocznij klasyfikację"/>
+        </properties>
+      </component>
+      <component id="ffd1a" class="javax.swing.JRadioButton">
+        <constraints>
+          <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="podobieństwo zdań"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

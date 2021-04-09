@@ -1,0 +1,10 @@
+30-MAR-1987 14:32:12.01
+
+<D>grain</D><D>wheat</D><D>corn</D><D>oilseed</D><D>soybean</D>
+
+<D>usa</D>
+
+
+
+U.S. EXPORT INSPECTIONS, IN THOUS BUSHELS  SOYBEANS 17,683 WHEAT 20,717 CORN 36,581 
+
