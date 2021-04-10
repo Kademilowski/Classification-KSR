@@ -2,18 +2,18 @@ package proj1.featuresVectors;
 
 public class WordsCountAtSentence extends Feature {
 
-    private int wordsCountAtSentence;
+    private double wordsCountAtSentence;
 
     public WordsCountAtSentence(int wordsCountAtSentence) {
-        super(false);
+        super(false, wordsCountAtSentence);
         this.wordsCountAtSentence = wordsCountAtSentence;
     }
 
-    public int getWordsCountAtSentence() {
+    public double getWordsCountAtSentence() {
         return wordsCountAtSentence;
     }
 
-    public void setWordsCountAtSentence(int wordsCountAtSentence) {
+    public void setWordsCountAtSentence(double wordsCountAtSentence) {
         this.wordsCountAtSentence = wordsCountAtSentence;
     }
 }

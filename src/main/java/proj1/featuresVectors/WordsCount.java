@@ -5,7 +5,7 @@ public class WordsCount extends Feature {
     private int countWords;
 
     public WordsCount(int countWords) {
-        super(false);
+        super(false, countWords);
         this.countWords = countWords;
     }
 

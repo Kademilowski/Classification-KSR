@@ -6,7 +6,7 @@ public class AverageBigLetter extends Feature {
     private double averagesBigLetters = 0.0;
 
     public AverageBigLetter(double averagesBigLetters) {
-        super(false);
+        super(false, averagesBigLetters);
         this.averagesBigLetters = averagesBigLetters;
     }
 

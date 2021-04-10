@@ -9,9 +9,33 @@ public class Feature {
 
     private boolean isText = false;
     private Double number;
+    private int count;
     private String text;
+    private List<String> textList;
 
     public Feature(boolean isText) {
+        this.isText = isText;
+    }
+
+    public Feature(boolean isText, String text) {
+
+        this.text = text;
+        this.isText = isText;
+    }
+
+    public Feature(boolean isText, Double number) {
+        this.number = number;
+        this.isText = isText;
+    }
+
+    public Feature(boolean isText, int number) {
+        this.number = new Double(number);
+        this.isText = isText;
+    }
+
+
+    public Feature(boolean isText, List<String> text) {
+        this.textList = text;
         this.isText = isText;
     }
 
@@ -41,6 +65,25 @@ public class Feature {
         return text;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public List<String> getTextList() {
+        return textList;
+    }
+
+    public void setTextList(List<String> textList) {
+        this.textList = textList;
+    }
 }
 
 //L 1. liczba słów w  tag text - z usunieciem stoptermow

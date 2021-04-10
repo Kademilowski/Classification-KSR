@@ -2,18 +2,18 @@ package proj1.featuresVectors;
 
 public class CountInterpunctions extends Feature {
 
-    private int countInterpunctions;
+    private double countInterpunctions;
 
-    public CountInterpunctions(int countInterpunctions) {
-        super(false);
+    public CountInterpunctions(double countInterpunctions) {
+        super(false, countInterpunctions);
         this.countInterpunctions = countInterpunctions;
     }
 
-    public int getCountInterpunctions() {
+    public double getCountInterpunctions() {
         return countInterpunctions;
     }
 
-    public void setCountInterpunctions(int countInterpunctions) {
+    public void setCountInterpunctions(double countInterpunctions) {
         this.countInterpunctions = countInterpunctions;
     }
 }

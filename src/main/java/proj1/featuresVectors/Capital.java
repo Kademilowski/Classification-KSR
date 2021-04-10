@@ -5,7 +5,7 @@ public class Capital extends Feature {
     private String capital;
 
     public Capital(String capital) {
-        super(true);
+        super(true, capital);
         this.capital = capital;
     }
 

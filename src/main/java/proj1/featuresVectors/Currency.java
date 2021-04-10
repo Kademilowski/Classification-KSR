@@ -6,7 +6,7 @@ public class Currency extends Feature {
 
 
     public Currency(String currency) {
-        super(true);
+        super(true, currency);
         this.currency = currency;
     }
 

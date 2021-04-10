@@ -7,7 +7,7 @@ public class AuthorName extends Feature {
     private List<String> authorNames;
 
     public AuthorName(List<String> authorNames) {
-        super(true);
+        super(true, authorNames);
         this.authorNames = authorNames;
     }
 

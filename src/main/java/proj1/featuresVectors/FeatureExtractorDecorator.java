@@ -14,7 +14,7 @@ public class FeatureExtractorDecorator implements FeatureExtractor {
         FeatureVector featureVector = new FeatureVector(document);
 
         for(FeatureExtractor it : extractors){
-           featureVector.addAll(it.extract(document));
+           //featureVector.addAll(it.extract(document));
         }
 
         /*extractors.stream()

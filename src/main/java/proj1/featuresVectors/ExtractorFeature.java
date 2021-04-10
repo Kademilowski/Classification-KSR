@@ -52,7 +52,7 @@ public class ExtractorFeature {
 
     //1 jescze chyba nie dziala z stoptermami ok ale bez stoptermow - liczba
     //stopterm lista bo zeby usunac slowa
-    public static double WordsCount(List<String> stopterms, String text) {
+    public static int WordsCount(List<String> stopterms, String text) {
         double countWords = 0;
 
         text = text.trim();
@@ -67,7 +67,7 @@ public class ExtractorFeature {
         if (textWords2.size() <= 0)
             return 0;
 
-        return textWords2.size();
+        return (int) textWords2.size();
 
 
 
@@ -86,9 +86,41 @@ public class ExtractorFeature {
 
 
     //2 dziala ale do malych liter i usunac by i Reuters - String
-    public static String AuthorName(String text) {
+    public static List<String> AuthorName(List<String> text) {
 
-        String author = text; // ??? czy coś jeszcze usunać
+        List<String> author = text; // ??? czy coś jeszcze usunać
+        List<String> tmpAuthors = new ArrayList<String>();
+        String auth;
+
+
+        for(String it : author) {
+            auth = it.toLowerCase();
+
+
+            String tmp = auth.copyValueOf("reuters".toCharArray());
+            auth = auth.replace(tmp, "");
+
+            tmp = auth.copyValueOf("by ".toCharArray());
+            auth = auth.replace(tmp, "");
+
+            //System.out.println(auth);
+
+            if(auth.isEmpty() || auth == null){
+                auth="";
+            }
+
+            System.out.println(auth);
+            //tmpAuthors.toString();
+            tmpAuthors.add(auth);
+
+
+
+        }
+
+        return tmpAuthors;
+
+        /*
+        * String Sauthor = text; // ??? czy coś jeszcze usunać
         author = author.toLowerCase();
 
         String tmp = author.copyValueOf("reuters".toCharArray());
@@ -98,6 +130,7 @@ public class ExtractorFeature {
         author = author.replace(tmp, "");
 
         return author;
+        * */
     }
 
 

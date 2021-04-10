@@ -1,23 +1,23 @@
 package proj1.featuresVectors;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
+/*import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;*/
 
 public class VectorNumberVal implements Comparable<VectorNumberVal> {
 
 
     /*------------------------ FIELDS REGION ------------------------*/
-    private FeatureVector featureVector;
+    private Cechy featureVector;
     private Double distance;
 
     /*------------------------ METHODS REGION ------------------------*/
-    public VectorNumberVal(FeatureVector featureVector, Double distance) {
+    public VectorNumberVal(Cechy featureVector, Double distance) {
         this.featureVector = featureVector;
         this.distance = distance;
     }
 
-    public FeatureVector getFeatureVector() {
+    public Cechy getFeatureVector() {
         return this.featureVector;
     }
 
@@ -46,15 +46,17 @@ public class VectorNumberVal implements Comparable<VectorNumberVal> {
             return false;
         }
 
-        VectorNumberVal that = (VectorNumberVal) o;
+        return false;
+        //VectorNumberVal that = (VectorNumberVal) o;
 
-        return new EqualsBuilder()
+       /* return new EqualsBuilder()
                 .append(featureVector, that.featureVector)
                 .append(distance, that.distance)
-                .isEquals();
+                .isEquals();*/
     }
 
-    @Override
+
+   /* @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37)
                 .append(featureVector)
@@ -69,5 +71,5 @@ public class VectorNumberVal implements Comparable<VectorNumberVal> {
                 .append("distance", distance)
                 .toString();
     }
-
+    */
 }

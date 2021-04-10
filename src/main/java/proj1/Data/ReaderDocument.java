@@ -116,6 +116,7 @@ public class ReaderDocument {
         return tmp;
     }
 
+
     //1. liczba słów w  tag text - z usunieciem stoptermow
     //2. nazwa autora w dokumencie - w  tag author
     //3. średnia liczba słów w zdaniu w danym dokumencie - tag text, nie usuwamy stoptermow
