@@ -88,48 +88,46 @@ public class ExtractorFeature {
     //2 dziala ale do malych liter i usunac by i Reuters - String
     public static List<String> AuthorName(List<String> text) {
 
-        List<String> author = text; // ??? czy coś jeszcze usunać
-        List<String> tmpAuthors = new ArrayList<String>();
-        String auth;
+        List<String> topics = text; // ??? czy coś jeszcze usunać
+        List<String> tmpTopics = new ArrayList<String>();
+        String topic;
 
 
-        for(String it : author) {
-            auth = it.toLowerCase();
+        for(String it : topics) {
+            topic = it.toLowerCase();
 
 
-            String tmp = auth.copyValueOf("reuters".toCharArray());
-            auth = auth.replace(tmp, "");
+            String tmp = topic.copyValueOf("reuters".toCharArray());
+            topic = topic.replace(tmp, "");
 
-            tmp = auth.copyValueOf("by ".toCharArray());
-            auth = auth.replace(tmp, "");
+            tmp = topic.copyValueOf("by ".toCharArray());
+            topic = topic.replace(tmp, "");
 
-            //System.out.println(auth);
+            //System.out.println(topic);
 
-            if(auth.isEmpty() || auth == null){
-                auth="";
+            if(topic.isEmpty() || topic == null){
+                topic="";
             }
 
-            System.out.println(auth);
-            //tmpAuthors.toString();
-            tmpAuthors.add(auth);
+            tmpTopics.add(topic);
 
 
 
         }
 
-        return tmpAuthors;
+        return tmpTopics;
 
         /*
-        * String Sauthor = text; // ??? czy coś jeszcze usunać
-        author = author.toLowerCase();
+        * String Stopics = text; // ??? czy coś jeszcze usunać
+        topics = topics.toLowerCase();
 
-        String tmp = author.copyValueOf("reuters".toCharArray());
-        author = author.replace(tmp, "");
+        String tmp = topics.copyValueOf("reuters".toCharArray());
+        topics = topics.replace(tmp, "");
 
-        tmp = author.copyValueOf("by ".toCharArray());
-        author = author.replace(tmp, "");
+        tmp = topics.copyValueOf("by ".toCharArray());
+        topics = topics.replace(tmp, "");
 
-        return author;
+        return topics;
         * */
     }
 
@@ -324,6 +322,38 @@ public class ExtractorFeature {
         return currencies[ArrayUtils.indexOf(currencyCount, (int)Collections.max(b))];
     }
 
+
+    //REZERWOWE
+    public static List<String> Topics(List<String> text) {
+
+        List<String> topics = text; // ??? czy coś jeszcze usunać
+        List<String> tmpTopics = new ArrayList<String>();
+        String topic;
+
+
+        for(String it : topics) {
+            topic = it.toLowerCase();
+
+
+            String tmp = topic.copyValueOf("reuters".toCharArray());
+            topic = topic.replace(tmp, "");
+
+            tmp = topic.copyValueOf("by ".toCharArray());
+            topic = topic.replace(tmp, "");
+
+            //System.out.println(topic);
+
+            if (topic.isEmpty() || topic == null) {
+                topic = "";
+            }
+
+            tmpTopics.add(topic);
+
+
+         }
+
+            return tmpTopics;
+        }
 
 
 }

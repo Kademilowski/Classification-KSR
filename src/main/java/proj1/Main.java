@@ -26,9 +26,10 @@ public class Main {
     private static List<Cechy>testVectors = new ArrayList<Cechy>();
 
     private static List<Classified> classifiedDocuemnts = new ArrayList<Classified>();
+    static Map<String, Boolean> checkedFeatures = new LinkedHashMap<>();
 
-    private static FeatureExtractorDecorator extractorDecorator;
-    private static Map<String, Map<String, Integer>> classification;
+
+
 
     private static List<String> places =  Arrays.asList("west-germany, japan, france, uk, usa, canada");
     private static List<String> stopterms =  Arrays.asList("I' am", "hello");
@@ -116,17 +117,17 @@ public class Main {
     }
 
 
-    public static void methodKNN(int Knumber, String metric, String textMeasure){
+    public static void methodKNN(int Knumber, String metric, String textMeasure, Map<String, Boolean> checked){
 
 
         for(Cechy it : testVectors){
             String correctPlace = it.getArticle().getPlaces().get(0);
             String classifyPlace;
 
-            if(knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure) == null){
+            if(knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked) == null){
                 classifyPlace = "";
             }else{
-                classifyPlace = knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure);
+                classifyPlace = knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked);
             }
 
 
@@ -145,11 +146,11 @@ public class Main {
         Map<String, Integer> countriesDefault = new LinkedHashMap<>();
 
         //Precision
-        Map<String, Integer> precisions = new LinkedHashMap<>();
+        Map<String, Double> precisions = new LinkedHashMap<>();
         //Recall
-        Map<String, Integer> recalls = new LinkedHashMap<>();
+        Map<String, Double> recalls = new LinkedHashMap<>();
         //F1
-        Map<String, Integer> f1 = new LinkedHashMap<>();
+        Map<String, Double> f1 = new LinkedHashMap<>();
 
 
         countries.put("usa", 0);
@@ -221,13 +222,51 @@ public class Main {
 
         }
 
+        recalls.put("usa",(double)countriesCorrect.get("usa")/((1.0)*(double)countriesDefault.get("usa")));
+        recalls.put("uk",(double)countriesCorrect.get("uk")/((1.0)*(double)countriesDefault.get("uk")));
+        recalls.put("japan",(double)countriesCorrect.get("japan")/((1.0)*(double)countriesDefault.get("japan")));
+        recalls.put("canada",(double)countriesCorrect.get("canada")/((1.0)*(double)countriesDefault.get("canada")));
+        recalls.put("west-germany",(double)countriesCorrect.get("west-germany")/((1.0)*(double)countriesDefault.get("west-germany")));
+        recalls.put("france",(double)countriesCorrect.get("france")/((1.0)*(double)countriesDefault.get("france")));
+
+        precisions.put("usa",(double)countriesCorrect.get("usa")/((1.0)*(double)countries.get("usa")));
+        precisions.put("uk",(double)countriesCorrect.get("uk")/((1.0)*(double)countries.get("uk")));
+        precisions.put("japan",(double)countriesCorrect.get("japan")/((1.0)*(double)countries.get("japan")));
+        precisions.put("canada",(double)countriesCorrect.get("canada")/((1.0)*(double)countries.get("canada")));
+        precisions.put("west-germany",(double)countriesCorrect.get("west-germany")/((1.0)*(double)countries.get("west-germany")));
+        precisions.put("france",(double)countriesCorrect.get("france")/((1.0)*(double)countries.get("france")));
+
+        f1.put("usa",2.0*precisions.get("usa")*recalls.get("usa")/(precisions.get("usa") + recalls.get("usa")));
+        f1.put("uk", 2.0*precisions.get("uk")*recalls.get("uk")/(precisions.get("uk")+recalls.get("uk")));
+        f1.put("japan",2.0*precisions.get("japan")*recalls.get("japan")/(precisions.get("japan")+recalls.get("japan")));
+        f1.put("canada",2.0*precisions.get("canada")*recalls.get("canada")/(precisions.get("canada")+recalls.get("canada")));
+        f1.put("west-germany",2.0*precisions.get("west-germany")*recalls.get("west-germany")/(precisions.get("west-germany") + recalls.get("west-germany")));
+        f1.put("france",2.0*precisions.get("france")*recalls.get("france")/(precisions.get("france")+recalls.get("france")));
+
        // double precision = 0.0;
        // double recall = 0.0;
         //double f1 = 0.0;
 
         accuracy = accuracy / classifiedDocuemnts.size();
         //recall =
+        System.out.println("F1");
+        for(Map.Entry<String, Double> it : f1.entrySet()){
+            System.out.println(it.getKey() + " " + it.getValue());
 
+        }
+
+        System.out.println("PRECISIONS");
+        for(Map.Entry<String, Double> it : precisions.entrySet()){
+            System.out.println(it.getKey() + " " + it.getValue());
+
+        }
+
+
+        System.out.println("Recalls");
+        for(Map.Entry<String, Double> it : recalls.entrySet()){
+            System.out.println(it.getKey() + " " + it.getValue());
+
+        }
 
         //System.out.println("default " + countDefault);
         //System.out.println("CC " + countCorrect);
@@ -290,7 +329,7 @@ public class Main {
         System.out.println(testDocuments.size());
 
         extracionFeatures();
-        methodKNN(1, "Euculidean", "sdsd");
+        methodKNN(12, "Euculidean", "sdsd", checkedFeatures);
         Statistics();
 
 

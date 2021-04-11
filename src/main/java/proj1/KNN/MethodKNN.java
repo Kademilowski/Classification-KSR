@@ -18,12 +18,6 @@ public class MethodKNN {
     private int k_parameter = 1;
     private float[] learn_test_partition = new float[2];
 
-    /*public MethodKNN(int k_parameter,float[] learn_test_partition){
-        this.k_parameter = k_parameter;
-        this.learn_test_partition = learn_test_partition;
-    }*/
-
-
 
     //#########################################
 
@@ -31,7 +25,7 @@ public class MethodKNN {
                             List<Cechy> trainingVectors,
                             int numberK,
                             String numericalMetric,
-                            String textMetric) {
+                            String textMetric, Map<String, Boolean> checked) {
 
         List<VectorNumberVal> calculatedFeatureVectors = new ArrayList<VectorNumberVal>();
 
@@ -39,7 +33,7 @@ public class MethodKNN {
         for (Cechy it : trainingVectors) {
             calculatedFeatureVectors.add(new VectorNumberVal(it,
                     FeatureVector.calculateDistance(featureVector, it, numericalMetric,
-                            textMetric)));
+                            textMetric, checked)));
         }
 
         //te ktore sa najlbizej
@@ -108,10 +102,10 @@ public class MethodKNN {
                                        List<Cechy> trainingVectors,
                                        int numberK,
                                        String numericalMetric,
-                                       String textMetric) {
+                                       String textMetric, Map<String, Boolean> checked) {
 
         List<Cechy> selectedVectors = new ArrayList<Cechy>();
-        selectedVectors = calculate(featureVector, trainingVectors, numberK, numericalMetric, textMetric);
+        selectedVectors = calculate(featureVector, trainingVectors, numberK, numericalMetric, textMetric, checked);
 
 
 

@@ -25,9 +25,11 @@ public class Cechy {
     private int wordsCount;
     private double wordsCountAtSentence;
     private double countSentences30;
+    private List<String> topics;
 
 
     public void setFeatures(){
+        this.topics = (ExtractorFeature.Topics(this.article.getTopics()));
         this.author = (ExtractorFeature.AuthorName(this.article.getAuthors()));
         this.avgBigLetter =(ExtractorFeature.AverageBigLetter(this.article.getText()));
         this.capital = (ExtractorFeature.Capital(this.article.getText(), this.article.getPlaces()));
@@ -117,5 +119,13 @@ public class Cechy {
 
     public void setCountSentences30(double countSentences30) {
         this.countSentences30 = countSentences30;
+    }
+
+    public List<String> getTopics() {
+        return topics;
+    }
+
+    public void setTopics(List<String> topics) {
+        this.topics = topics;
     }
 }

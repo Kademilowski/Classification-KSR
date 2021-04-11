@@ -278,22 +278,6 @@
         </constraints>
         <properties/>
       </component>
-      <component id="6b565" class="javax.swing.JTextField" binding="learnSetTextField">
-        <constraints>
-          <grid row="4" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="-1"/>
-          </grid>
-        </constraints>
-        <properties/>
-      </component>
-      <component id="6df39" class="javax.swing.JLabel" binding="learnSetJLabel">
-        <constraints>
-          <grid row="3" column="4" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Podział zbioru uczącego"/>
-        </properties>
-      </component>
       <component id="d4be2" class="javax.swing.JLabel" binding="textMeasureJLabel">
         <constraints>
           <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -363,7 +347,7 @@
           <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="podobieństwo zdań"/>
+          <text value="Hamming"/>
         </properties>
       </component>
     </children>
