@@ -5,19 +5,17 @@ import proj1.Data.Classified;
 import proj1.Data.Document;
 import proj1.Data.ReaderDocument;
 import proj1.KNN.MethodKNN;
-import proj1.Measures.NGramMeassure;
 import proj1.QualityMeasures.QualityMeasures;
 import proj1.featuresVectors.Cechy;
+import proj1.featuresVectors.ExtractorFeature;
 
 import javax.swing.*;
-import javax.swing.plaf.FontUIResource;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.List;
 
@@ -51,6 +49,8 @@ public class WindowK {
     private JLabel learnSetJLabel;
     private JLabel featuresJLabel;
     private JTextField testSetTextField;
+    private JCheckBox topicsCheckBox;
+    private JCheckBox firstSentenceCheckBox;
     private JTextField learnSetTextField;
 
     private ButtonGroup groupMetric = new ButtonGroup();
@@ -119,12 +119,27 @@ public class WindowK {
                 checkedFeatures.put("countSentences30", numberSentAtFragCheckBox.isSelected());
                 checkedFeatures.put("capital", capitalCheckBox.isSelected());
                 checkedFeatures.put("currency", currencyCheckBox.isSelected());
-                //checkedFeatures.put("topics", currencyCheckBox.isSelected());
-
+                checkedFeatures.put("topics", topicsCheckBox.isSelected());
+                checkedFeatures.put("firstSentence", firstSentenceCheckBox.isSelected());
+                checkedFeatures.put("authors", authorCheckBox.isSelected());
 
 
                 Knumber = Integer.parseInt(kParameterTextField.getText());
                 ratioTest = Integer.parseInt(testSetTextField.getText());
+
+                Scanner s = null;
+                try {
+                    s = new Scanner(new File(String.valueOf(fileStopterms)));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                while (s.hasNext()){
+                    stopterms.add(s.next());
+                }
+                s.close();
+
+
+                System.out.println(stopterms.toString());
 
                 final File folder = new File("D:\\Kamil\\Studia\\semestr_6\\KOMPUTEROWE_SYSTEMY_ROZPOZNAWANIA\\Laboratorium\\Projekt1\\src\\main\\java\\resources\\documents");
                 Document doc = new Document();
@@ -140,7 +155,6 @@ public class WindowK {
                             ReaderDocument.GetPlaces(text), ReaderDocument.GetPeople(text), ReaderDocument.GetTitle(text),
                             ReaderDocument.GetAuthors(text), ReaderDocument.GetText(text)));
 
-
                 }
 
 
@@ -151,7 +165,15 @@ public class WindowK {
 
                 for(Article it : documents){
                    // System.out.println("eee " + it.getPlaces());
+                    //System.out.println(ExtractorFeature.FirstSentence(it.getText()));
+
                 }
+
+                for(int i=0; i<100; i++){
+                    System.out.println(documents.get(i).getTitle());
+                    System.out.println(ExtractorFeature.WordsCount(stopterms, documents.get(i).getText()));
+                }
+
                 System.out.println(documents.size());
                 SetsDivision(ratioTest);
                 System.out.println(documents.size());
@@ -159,8 +181,28 @@ public class WindowK {
                 System.out.println(testDocuments.size());
 
                 extracionFeatures();
-                methodKNN(Knumber, "Euculidean", "sdsd", checkedFeatures);
+                methodKNN(Knumber, "Euculidean", "Trigram", checkedFeatures);
                 QualityMeasures.Statistics(classifiedDocuemnts);
+               /* if(metric == "Euculidean"){
+                    return Metric.Euclidean(numA, numB);
+                }
+
+                "Hamming"
+                else if(metric == "Chebyschev"){
+                    return Metric.Chebyshev(numA, numB);
+                }
+                else if(metric == "Manhattan"){
+                    return Metric.Manhattan(numA, numB);
+                }*/
+
+
+                documents.clear();
+                trainingDocuments.clear();
+                testDocuments.clear();
+                trainingVectors.clear();
+                testVectors.clear();
+                classifiedDocuemnts.clear();
+                stopterms.clear();
 
 
             }
@@ -185,7 +227,136 @@ public class WindowK {
 
 
     private static java.util.List<String> places =  Arrays.asList("west-germany, japan, france, uk, usa, canada");
-    private static java.util.List<String> stopterms =  Arrays.asList("I' am", "hello");
+   // private static java.util.List<String> stopterms =  Arrays.asList("I' am", "hello");
+   private static java.util.List<String> stopterms = new List<String>() {
+       @Override
+       public int size() {
+           return 0;
+       }
+
+       @Override
+       public boolean isEmpty() {
+           return false;
+       }
+
+       @Override
+       public boolean contains(Object o) {
+           return false;
+       }
+
+       @Override
+       public Iterator<String> iterator() {
+           return null;
+       }
+
+       @Override
+       public Object[] toArray() {
+           return new Object[0];
+       }
+
+       @Override
+       public <T> T[] toArray(T[] a) {
+           return null;
+       }
+
+       @Override
+       public boolean add(String s) {
+           return false;
+       }
+
+       @Override
+       public boolean remove(Object o) {
+           return false;
+       }
+
+       @Override
+       public boolean containsAll(Collection<?> c) {
+           return false;
+       }
+
+       @Override
+       public boolean addAll(Collection<? extends String> c) {
+           return false;
+       }
+
+       @Override
+       public boolean addAll(int index, Collection<? extends String> c) {
+           return false;
+       }
+
+       @Override
+       public boolean removeAll(Collection<?> c) {
+           return false;
+       }
+
+       @Override
+       public boolean retainAll(Collection<?> c) {
+           return false;
+       }
+
+       @Override
+       public void clear() {
+
+       }
+
+       @Override
+       public boolean equals(Object o) {
+           return false;
+       }
+
+       @Override
+       public int hashCode() {
+           return 0;
+       }
+
+       @Override
+       public String get(int index) {
+           return null;
+       }
+
+       @Override
+       public String set(int index, String element) {
+           return null;
+       }
+
+       @Override
+       public void add(int index, String element) {
+
+       }
+
+       @Override
+       public String remove(int index) {
+           return null;
+       }
+
+       @Override
+       public int indexOf(Object o) {
+           return 0;
+       }
+
+       @Override
+       public int lastIndexOf(Object o) {
+           return 0;
+       }
+
+       @Override
+       public ListIterator<String> listIterator() {
+           return null;
+       }
+
+       @Override
+       public ListIterator<String> listIterator(int index) {
+           return null;
+       }
+
+       @Override
+       public List<String> subList(int fromIndex, int toIndex) {
+           return null;
+       }
+   };
+    File fileStopterms = new File("D:\\Kamil\\Studia\\semestr_6\\KOMPUTEROWE_SYSTEMY_ROZPOZNAWANIA\\Laboratorium\\Projekt1\\src\\main\\java\\resources\\stopwords\\stopwords.txt");
+
+
 
     private static MethodKNN knnAlgorithm = new MethodKNN();
 
@@ -279,10 +450,10 @@ public class WindowK {
             String correctPlace = it.getArticle().getPlaces().get(0);
             String classifyPlace;
 
-            if(knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked) == null){
+            if(knnAlgorithm.Classification(it, trainingVectors, Knumber, metric, textMeasure, checked) == null){
                 classifyPlace = "";
             }else{
-                classifyPlace = knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked);
+                classifyPlace = knnAlgorithm.Classification(it, trainingVectors, Knumber, metric, textMeasure, checked);
             }
 
 

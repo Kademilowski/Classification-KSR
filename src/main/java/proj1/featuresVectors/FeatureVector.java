@@ -1,11 +1,8 @@
 package proj1.featuresVectors;
 
-import com.ibm.icu.util.MeasureUnit;
 import proj1.Data.Article;
-import proj1.Data.Document;
-import proj1.Measures.Measure;
+import proj1.Measures.*;
 import proj1.Metrics.Metric;
-import proj1.Measures.NGramMeassure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,28 +20,6 @@ public class FeatureVector {
     public Article getDocument() {
         return document;
     }
-
-    // ???????????????????
-    /*public static void normalize(List<FeatureVector> vectors) {
-        double[] maxs = new double[vectors.get(0).size()];
-        for (int i = 0; i < vectors.get(0).size(); i++) {
-            if (vectors.get(0).get(i).isNumber()) {
-                final int index = i;
-
-
-               *//* maxs[i] = vectors.stream()
-                        .mapToDouble(vector -> vector.get(index).getNumber())
-                        .max().getAsDouble();*//*
-            }
-        }
-        for (FeatureVector vector : vectors) {
-            for (int i = 0; i < vector.size(); i++) {
-                if (vector.get(i).isNumber()) {
-                    vector.get(i).setNumber(vector.get(i).getNumber() / maxs[i]);
-                }
-            }
-        }
-    }*/
 
 
     public static Double calculateDistance(Cechy c1, Cechy c2, String metric, String measure, Map<String, Boolean> checked){
@@ -88,40 +63,73 @@ public class FeatureVector {
 
         }
 
-        if(checked.get("capital")){
-            numA.add(0.0);
-            numB.add(1.0 - NGramMeassure.calculateTrigramSim(c1.getCapital(), c2.getCapital()));
-            //System.out.println("capital");
+        if(measure.equals("Hamming")) {
+            if (checked.get("capital")) {
+                numA.add(0.0);
+                //numB.add((double)HammingDistance.hammingDist(c1.getCapital(), c2.getCapital()));
+                numB.add((double)Levensthein.Levenshtein(c1.getCapital(), c2.getCapital()));
+                //numB.add(BoyerMayer.search(c1.getCapital().toCharArray(),  c2.getCapital().toCharArray()));
+                //System.out.println("capital");
 
+            }
+
+            if (checked.get("currency")) {
+                numA.add(0.0);
+                //numB.add((double)HammingDistance.hammingDist(c1.getCapital(), c2.getCapital()));
+                numB.add((double)Levensthein.Levenshtein(c1.getCapital(), c2.getCapital()));
+                //numB.add(BoyerMayer.search(c1.getCapital().toCharArray(),  c2.getCapital().toCharArray()));
+                //System.out.println("currency");
+            }
+
+            if (checked.get("topics")) {
+                String Topics1 = c1.getTopics().toString();
+                String Topics2 = c2.getTopics().toString();
+                numA.add(0.0);
+                //numB.add((double)HammingDistance.hammingDist(c1.getCapital(), c2.getCapital()));
+                numB.add(Levensthein.Levenshtein(c1.getCapital(), c2.getCapital()));
+                //numB.add(BoyerMayer.search(c1.getCapital().toCharArray(), c2.getCapital().toCharArray()));
+                //System.out.println("currency");
+            }
+
+            if (checked.get("authors")) {
+                String A1 = c1.getAuthor().toString();
+                String A2 = c2.getAuthor().toString();
+                numA.add(0.0);
+                numB.add(Levensthein.Levenshtein(A1, A2));
+            }
+        } else{
+            if (checked.get("capital")) {
+                numA.add(0.0);
+               // numB.add(1.0 - NGramMeassure.calculateTrigram(c1.getCapital(), c2.getCapital()));
+                numB.add(NGramMeassure.calculateTrigram(c1.getCapital(), c2.getCapital()));
+                //System.out.println("capital");
+
+            }
+
+            if (checked.get("currency")) {
+                numA.add(0.0);
+                //numB.add(1.0 - NGramMeassure.calculateTrigram(c1.getCurrency(), c2.getCurrency()));
+                numB.add(NGramMeassure.calculateTrigram(c1.getCurrency(), c2.getCurrency()));
+                //System.out.println("currency");
+            }
+
+            if (checked.get("topics")) {
+                String Topics1 = c1.getTopics().toString();
+                String Topics2 = c2.getTopics().toString();
+                numA.add(0.0);
+                //numB.add(1.0 - NGramMeassure.calculateTrigram(Topics1, Topics2));
+                numB.add(NGramMeassure.calculateTrigram(Topics1, Topics2));
+                //System.out.println("currency");
+            }
+
+            if (checked.get("authors")) {
+                String A1 = c1.getAuthor().toString();
+                String A2 = c2.getAuthor().toString();
+                 numA.add(0.0);
+                 numB.add(1.0 - NGramMeassure.calculateTrigram(A1, A2));
+            }
         }
 
-        if(checked.get("currency")){
-            numA.add(0.0);
-            numB.add(1.0 - NGramMeassure.calculateTrigramSim(c1.getCurrency(), c2.getCurrency()));
-            //System.out.println("currency");
-        }
-
-        if(checked.get("topics")){
-            String Topics1 = c1.getTopics().toString();
-            String Topics2 = c2.getTopics().toString();
-            numA.add(0.0);
-            numB.add(1.0 - NGramMeassure.calculateTrigramSim(Topics1, Topics2));
-            //System.out.println("currency");
-        }
-
-       // numA.add(0.0);
-
-
-
-
-
-
-
-
-
-       // String c1Author = c1.getAuthor().toString();
-        //String c2Author = c2.getAuthor().toString();
-        //numB.add(1.0 - NGramMeassure.calculateTrigramSim(c1Author, c2Author));
 
 
         if(metric == "Euculidean"){

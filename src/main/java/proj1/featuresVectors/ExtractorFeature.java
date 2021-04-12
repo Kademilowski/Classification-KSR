@@ -88,12 +88,12 @@ public class ExtractorFeature {
     //2 dziala ale do malych liter i usunac by i Reuters - String
     public static List<String> AuthorName(List<String> text) {
 
-        List<String> topics = text; // ??? czy coś jeszcze usunać
-        List<String> tmpTopics = new ArrayList<String>();
+        List<String> authors = text; // ??? czy coś jeszcze usunać
+        List<String> tmpAuthors = new ArrayList<String>();
         String topic;
 
 
-        for(String it : topics) {
+        for(String it : authors) {
             topic = it.toLowerCase();
 
 
@@ -109,26 +109,14 @@ public class ExtractorFeature {
                 topic="";
             }
 
-            tmpTopics.add(topic);
+            tmpAuthors.add(topic);
 
 
 
         }
 
-        return tmpTopics;
+        return tmpAuthors;
 
-        /*
-        * String Stopics = text; // ??? czy coś jeszcze usunać
-        topics = topics.toLowerCase();
-
-        String tmp = topics.copyValueOf("reuters".toCharArray());
-        topics = topics.replace(tmp, "");
-
-        tmp = topics.copyValueOf("by ".toCharArray());
-        topics = topics.replace(tmp, "");
-
-        return topics;
-        * */
     }
 
 
@@ -354,6 +342,48 @@ public class ExtractorFeature {
 
             return tmpTopics;
         }
+
+
+
+    public static String FirstSentence(String text) {
+
+        double countSentences = 0;
+
+        String firstSentence = "";
+        //System.out.println(text);
+        BreakIterator iterator = BreakIterator.getSentenceInstance(new Locale("en", "US"));
+        StringBuffer markers = new StringBuffer();
+        //int boundary = iterator.first();
+       // int boundary2 = iterator.next();
+       // int boundary3 = iterator.next();
+
+        markers.setLength(text.length() + 1);
+
+        for (int k = 0; k < markers.length(); k++) {
+            markers.setCharAt(k, ' ');
+        }
+
+        iterator.setText(text);
+
+
+
+       // int countt = 0;
+        iterator.setText(text);
+        int start = iterator.first();
+        int end = iterator.next();
+        try{
+            firstSentence = text.substring(start, end);
+        } catch(Exception e){
+            firstSentence = "";
+        }
+
+
+
+        return firstSentence;
+
+
+
+    }
 
 
 }

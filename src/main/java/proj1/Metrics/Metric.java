@@ -3,6 +3,7 @@ package proj1.Metrics;
 import proj1.featuresVectors.Feature;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Metric {
@@ -31,7 +32,8 @@ public class Metric {
             tmp.add(Math.abs(v1.get(i) - v2.get(i)));
         }
 
-        return  1;
+        Double t = Collections.max(tmp);
+        return  t;
         //return tmp.stream().max()
     }
 }

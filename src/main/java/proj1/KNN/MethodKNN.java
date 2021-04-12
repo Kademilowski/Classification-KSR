@@ -29,11 +29,14 @@ public class MethodKNN {
 
         List<VectorNumberVal> calculatedFeatureVectors = new ArrayList<VectorNumberVal>();
 
+
+
         //obliczanie wektorow calculatedFeatureVectors w celu wziecia k najblizszych sasiadow
         for (Cechy it : trainingVectors) {
             calculatedFeatureVectors.add(new VectorNumberVal(it,
                     FeatureVector.calculateDistance(featureVector, it, numericalMetric,
                             textMetric, checked)));
+
         }
 
         //te ktore sa najlbizej
@@ -43,6 +46,7 @@ public class MethodKNN {
 
 
         List<Cechy> features = new ArrayList<Cechy>();
+
 
         //zwrócenie tych wektorów
         for(VectorNumberVal it : calculatedFeatureVectors){
@@ -98,11 +102,11 @@ public class MethodKNN {
 
 
 
-    public String calculateAndClassify(Cechy featureVector,
-                                       List<Cechy> trainingVectors,
-                                       int numberK,
-                                       String numericalMetric,
-                                       String textMetric, Map<String, Boolean> checked) {
+    public String Classification(Cechy featureVector,
+                                 List<Cechy> trainingVectors,
+                                 int numberK,
+                                 String numericalMetric,
+                                 String textMetric, Map<String, Boolean> checked) {
 
         List<Cechy> selectedVectors = new ArrayList<Cechy>();
         selectedVectors = calculate(featureVector, trainingVectors, numberK, numericalMetric, textMetric, checked);

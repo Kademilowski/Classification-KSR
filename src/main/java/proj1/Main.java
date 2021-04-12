@@ -10,7 +10,6 @@ import proj1.featuresVectors.*;
 
 import javax.swing.*;
 import java.io.File;
-import java.text.DecimalFormat;
 import java.util.*;
 import java.io.IOException;
 
@@ -124,10 +123,10 @@ public class Main {
             String correctPlace = it.getArticle().getPlaces().get(0);
             String classifyPlace;
 
-            if(knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked) == null){
+            if(knnAlgorithm.Classification(it, trainingVectors, Knumber, metric, textMeasure, checked) == null){
                 classifyPlace = "";
             }else{
-                classifyPlace = knnAlgorithm.calculateAndClassify(it, trainingVectors, Knumber, metric, textMeasure, checked);
+                classifyPlace = knnAlgorithm.Classification(it, trainingVectors, Knumber, metric, textMeasure, checked);
             }
 
 

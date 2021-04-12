@@ -88,12 +88,13 @@ public class QualityMeasures {
         }
 
         System.out.println("Pozytwnie zaklasyfikowane");
-        System.out.println();
         for(Map.Entry<String, Integer> it : countriesCorrect.entrySet()){
             System.out.println(it.getKey() + " " + it.getValue());
             accuracy = accuracy + it.getValue();
 
         }
+
+
 
         recalls.put("usa",(double)countriesCorrect.get("usa")/((1.0)*(double)countriesDefault.get("usa")));
         recalls.put("uk",(double)countriesCorrect.get("uk")/((1.0)*(double)countriesDefault.get("uk")));
@@ -102,12 +103,24 @@ public class QualityMeasures {
         recalls.put("west-germany",(double)countriesCorrect.get("west-germany")/((1.0)*(double)countriesDefault.get("west-germany")));
         recalls.put("france",(double)countriesCorrect.get("france")/((1.0)*(double)countriesDefault.get("france")));
 
+        for(Map.Entry<String, Double> it : recalls.entrySet()){
+            if(it.getValue().isNaN()){
+                it.setValue(0.0);
+            }
+        }
+
         precisions.put("usa",(double)countriesCorrect.get("usa")/((1.0)*(double)countries.get("usa")));
         precisions.put("uk",(double)countriesCorrect.get("uk")/((1.0)*(double)countries.get("uk")));
         precisions.put("japan",(double)countriesCorrect.get("japan")/((1.0)*(double)countries.get("japan")));
         precisions.put("canada",(double)countriesCorrect.get("canada")/((1.0)*(double)countries.get("canada")));
         precisions.put("west-germany",(double)countriesCorrect.get("west-germany")/((1.0)*(double)countries.get("west-germany")));
         precisions.put("france",(double)countriesCorrect.get("france")/((1.0)*(double)countries.get("france")));
+
+        for(Map.Entry<String, Double> it : precisions.entrySet()){
+            if(it.getValue().isNaN()){
+                it.setValue(0.0);
+            }
+        }
 
         f1.put("usa",2.0*precisions.get("usa")*recalls.get("usa")/(precisions.get("usa") + recalls.get("usa")));
         f1.put("uk", 2.0*precisions.get("uk")*recalls.get("uk")/(precisions.get("uk")+recalls.get("uk")));
@@ -116,6 +129,11 @@ public class QualityMeasures {
         f1.put("west-germany",2.0*precisions.get("west-germany")*recalls.get("west-germany")/(precisions.get("west-germany") + recalls.get("west-germany")));
         f1.put("france",2.0*precisions.get("france")*recalls.get("france")/(precisions.get("france")+recalls.get("france")));
 
+        for(Map.Entry<String, Double> it : f1.entrySet()){
+            if(it.getValue().isNaN()){
+                it.setValue(0.0);
+            }
+        }
 
 
         accuracy = accuracy / classifiedDocuemnts.size();

@@ -26,6 +26,7 @@ public class Cechy {
     private double wordsCountAtSentence;
     private double countSentences30;
     private List<String> topics;
+    private String firstSentence;
 
 
     public void setFeatures(){
@@ -38,8 +39,12 @@ public class Cechy {
         this.wordsCount = (ExtractorFeature.WordsCount(this.stopterms, this.article.getText()));
         this.wordsCountAtSentence = (ExtractorFeature.WordsCountAtSentence(this.article.getText()));
         this.countSentences30 = (ExtractorFeature.CountSentences30PercentText(this.article.getText()));
+        this.firstSentence = (ExtractorFeature.FirstSentence(this.article.getText()));
     }
 
+    public String getFirstSentence() {
+        return firstSentence;
+    }
 
     public Article getArticle() {
         return article;
@@ -128,4 +133,10 @@ public class Cechy {
     public void setTopics(List<String> topics) {
         this.topics = topics;
     }
+
+
+/*
+    public void setFirstSentence(String firstSentence) {
+        this.firstSentence = firstSentence;
+    }*/
 }

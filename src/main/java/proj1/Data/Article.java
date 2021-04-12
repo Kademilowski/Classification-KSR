@@ -1,10 +1,5 @@
 package proj1.Data;
 
-import proj1.Measures.NGramMeassure;
-import proj1.Tuple.Tuple;
-import proj1.Tuple.Tuple2;
-import proj1.featuresVectors.ExtractorFeature;
-
 import java.util.*;
 
 public class Article {
@@ -16,10 +11,6 @@ public class Article {
     private String title;
     private List<String> authors;
     private String text;
-
-
-    //nazwa cechy i wartosćć jej w postaci liczby
-    List<Tuple2<String, Double>> features = new ArrayList<Tuple2<String, Double>>();
 
 
 
@@ -40,28 +31,8 @@ public class Article {
 
     }
 
-    public List<Tuple2<String, Double>> getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(List<Tuple2<String, Double>> features) {
-        this.features = features;
-    }
 
 
-    public void setFeatures2(List<String> stopterms){
-
-
-        features.add(Tuple.create("wordsCount", new Double(ExtractorFeature.WordsCount(stopterms, this.text))));
-        //features.add(Tuple.create("Author", NGramMeassure.calculateTrigramSim()));
-        features.add(Tuple.create("avgCountWordsAtSentence", ExtractorFeature.WordsCountAtSentence(this.text)));
-        features.add(Tuple.create("avgCountInterpunctions", ExtractorFeature.CountInterpunctions(this.text)));
-        //features.add(Tuple.create("capital", ca);
-        features.add(Tuple.create("countSentencesIn30", ExtractorFeature.CountSentences30PercentText(this.text)));
-        features.add(Tuple.create("avgBigLetter", ExtractorFeature.AverageBigLetter(this.text)));
-        //features.add(Tuple.create("currency", ExtractorFeature.Currency(this.text)));
-
-    }
 
 
     public void setDate(String date) {
